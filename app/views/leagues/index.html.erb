@@ -1,4 +1,4 @@
 <% @leagues.each do |league| %>
   <%= link_to league[:name], league_path(league) %>
-  <img src="<%= league[:logo] %>" alt="League Logo">
+  <%= image_tag league[:logo], alt: "League Logo"%>
 <% end %>

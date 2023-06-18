@@ -1,1 +1,8 @@
-league show
+<% @league.games.each do |game| %>
+  <%= image_tag game.home_pic, alt: "Team Logo" %>
+  <%= game.home %>
+  <%= game.home_score %>
+  <%= image_tag game.away_pic, alt: "Team Logo" %>
+  <%= game.away %>
+  <%= game.away_score %>
+<% end %>
