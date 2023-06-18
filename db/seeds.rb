@@ -64,21 +64,22 @@ require 'json'
       goals = fixture['goals']
 
       # Extract the relevant game information
-      name = "#{home_team['name']} vs #{away_team['name']}"
       date = game_data['date']
       home = home_team['name']
       away = away_team['name']
       home_score = goals['home']
       away_score = goals['away']
-
+      home_pic = home_team['logo']
+      away_pic = away_team['logo']
       # Create the game associated with the league
       Game.create(
-        name: name,
         date: date,
         home: home,
         away: away,
         home_score: home_score,
         away_score: away_score,
+        home_pic: home_pic,
+        away_pic: away_pic,
         league_id: new_league_id
       )
     end
