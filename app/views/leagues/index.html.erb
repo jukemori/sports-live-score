@@ -1,1 +1,4 @@
-league index
+<% @leagues.each do |league| %>
+  <p><%= league[:name] %></p>
+  <img src="<%= league[:logo] %>" alt="League Logo">
+<% end %>
