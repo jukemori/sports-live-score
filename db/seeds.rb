@@ -25,9 +25,10 @@ require 'json'
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
+      api_key = ENV['RAPID_API_KEY']
 
       request = Net::HTTP::Get.new(url)
-      request["X-RapidAPI-Key"] = '8957a47bfbmsh7ed6ded12eeef56p1ac9eajsn1e20ea768f8b'
+      request["X-RapidAPI-Key"] = api_key
       request["X-RapidAPI-Host"] = 'api-football-v1.p.rapidapi.com'
 
       response = http.request(request)
