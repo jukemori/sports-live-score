@@ -32,7 +32,8 @@ require 'json'
       request["X-RapidAPI-Host"] = 'api-football-v1.p.rapidapi.com'
 
       response = http.request(request)
-      data = JSON.parse(response.read_body)
+      lol = response.read_body
+      data = JSON.parse(lol)
       league = data['response'][0]['league']
       league_data = { name: league['name'], logo: league['logo'] }
 
@@ -40,6 +41,49 @@ require 'json'
       new_league_id = new_league.id
 
       puts "Created #{league['name']}"
+
+    # url = URI("https://api-football-v1.p.rapidapi.com/v3/fixtures?league=#{league_id}&season=2022")
+
+    # http = Net::HTTP.new(url.host, url.port)
+    # http.use_ssl = true
+
+    # request = Net::HTTP::Get.new(url)
+    # request["X-RapidAPI-Key"] = '8957a47bfbmsh7ed6ded12eeef56p1ac9eajsn1e20ea768f8b'
+    # request["X-RapidAPI-Host"] = 'api-football-v1.p.rapidapi.com'
+
+    # response = http.request(request)
+    # lol = response.read_body
+    # data = JSON.parse(lol)
+    # fixtures = data['response']
+    # fixtures
+
+    # fixtures.each do |fixture|
+    #   fixture
+    #   game_data = fixture['fixture']
+    #   home_team = fixture['teams']['home']
+    #   away_team = fixture['teams']['away']
+    #   goals = fixture['goals']
+
+    #   # Extract the relevant game information
+    #   date = game_data['date']
+    #   home = home_team['name']
+    #   away = away_team['name']
+    #   home_score = goals['home']
+    #   away_score = goals['away']
+    #   home_pic = home_team['logo']
+    #   away_pic = away_team['logo']
+    #   # Create the game associated with the league
+    #   Game.create(
+    #     date: date,
+    #     home: home,
+    #     away: away,
+    #     home_score: home_score,
+    #     away_score: away_score,
+    #     home_pic: home_pic,
+    #     away_pic: away_pic,
+    #     league_id: new_league_id
+    #   )
+    # end
   end
 
   puts "Cleaning up database..."
@@ -55,4 +99,4 @@ require 'json'
 
 
     puts "created #{League.count} leagues!"
-    puts "created #{Game.count} games!"
+    # puts "created #{Game.count} games!"
