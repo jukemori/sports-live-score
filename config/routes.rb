@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'leagues#index'
-  resources :leagues, only:[:index, :show, :new, :create] do
-    resources :games, only:[:index, :show, :new, :create]
+  resources :leagues, only:[:index, :show] do
+    resources :teams, only:[:index, :show]
   end
 end
