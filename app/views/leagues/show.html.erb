@@ -1,8 +1,4 @@
-<% @league.games.each do |game| %>
-  <%= image_tag game.home_pic, alt: "Team Logo" %>
-  <%= game.home %>
-  <%= game.home_score %>
-  <%= image_tag game.away_pic, alt: "Team Logo" %>
-  <%= game.away %>
-  <%= game.away_score %>
+<% @league.teams.each do |team| %>
+  <%= image_tag cl_image_path(team.photo.key), alt: "Team Logo"%>
+  <%= link_to team.name, league_team_path(team) %>
 <% end %>
