@@ -1,10 +1,13 @@
 class LeaguesController < ApplicationController
+  require 'uri'
+  require 'net/http'
   before_action :set_league, only: [:show]
   def index
     @leagues = League.all
   end
 
   def show
+
   end
 
   def new
@@ -29,5 +32,6 @@ class LeaguesController < ApplicationController
   def league_params
     params.require(:league).permit(:name, :logo)
   end
+
 
 end
