@@ -25,7 +25,6 @@ class TeamsController < ApplicationController
     fixtures = []
 
     data['response'].each do |result|
-      p result
       home = Team.find_by(name: result["teams"]["home"]["name"])
       away = Team.find_by(name: result["teams"]["away"]["name"])
       home_score = result["goals"]["home"]
@@ -43,5 +42,4 @@ class TeamsController < ApplicationController
     end
     fixtures
   end
-
 end

@@ -31,7 +31,7 @@ def fetchleagues(id)
 
   puts "Created #{league['name']}"
 
-  url = URI("https://api-football-v1.p.rapidapi.com/v3/teams?league=#{id}&season=#{Date.today.year}")
+  url = URI("https://api-football-v1.p.rapidapi.com/v3/teams?league=#{id}&season=2022")
 
   http = Net::HTTP.new(url.host, url.port)
   http.use_ssl = true
