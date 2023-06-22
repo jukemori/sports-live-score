@@ -3,7 +3,8 @@ class TeamsController < ApplicationController
   require 'net/http'
 
   def show
-    @team = Team.find(params[:id])
+    @league = League.find(params[:league_id])
+    @team = @league.teams.find(params[:id])
     @fixtures = fetchfixtures(@team.number)
   end
 
