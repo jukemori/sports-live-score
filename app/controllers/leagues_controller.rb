@@ -29,7 +29,7 @@ class LeaguesController < ApplicationController
   end
 
   def league_params
-    params.require(:league).permit(:name, :logo)
+    params.require(:league).permit(:name)
   end
 
 
