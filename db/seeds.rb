@@ -46,6 +46,7 @@ def fetchleagues(id)
   data['response'].each do |team|
     new_team = Team.create(
       name: team['team']['name'],
+      number: team['team']['id'],
       league_id: new_league.id
     )
     file = URI.open(team['team']['logo'])
@@ -69,3 +70,40 @@ fetchleagues(61)
 
 puts "created #{League.count} leagues!"
 puts "created #{Team.count} teams!"
+
+
+# def fetchteams(league)
+#   case league.name
+#   when "Premier League"
+#     id = 39
+#   when "Bundesliga"
+#     id = 78
+#   when "La Liga"
+#     id = 140
+#   when "Serie A"
+#     id = 135
+#   when "Ligue 1"
+#     id = 61
+#   end
+
+# league_id = league.id
+
+# url = URI("https://api-football-v1.p.rapidapi.com/v3/teams?league=#{id}&season=#{Date.today.year}")
+
+# http = Net::HTTP.new(url.host, url.port)
+# http.use_ssl = true
+
+# request = Net::HTTP::Get.new(url)
+# request["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
+# request["X-RapidAPI-Host"] = 'api-football-v1.p.rapidapi.com'
+
+# response = http.request(request)
+# data = JSON.parse(response.read_body)
+
+# teams = []
+
+# data['response'].each do|team_data|
+#   team_name = team_data['team']['name']
+#   team_logo = team_data['team']['logo']
+# end
+# end
