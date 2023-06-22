@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'leagues#index'
   resources :leagues, only:[:index, :show] do
-    resources :teams, only:[:index, :show]
+    resources :teams, only:[:show]
   end
 end
