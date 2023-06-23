@@ -30,7 +30,7 @@ class TeamsController < ApplicationController
       away = Team.find_by(name: result["teams"]["away"]["name"])
       home_score = result["goals"]["home"]
       away_score = result["goals"]["away"]
-      result_date = DateTime.parse(result["fixture"]["date"])
+      result_date = DateTime.parse(result["fixture"]["date"]).strftime("%b %e, %l:%M %p")
 
       fixture = Result.create(
         home_team_id: home,
