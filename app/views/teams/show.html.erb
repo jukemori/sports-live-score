@@ -1,3 +1,3 @@
 <% @fixtures.each do |fixture| %>
-  <%= fixture.date %>
+  <%= fixture.date.strftime("%b %e, %l:%M %p") %>
 <% end %>
