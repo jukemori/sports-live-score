@@ -73,7 +73,6 @@ puts "created #{League.count} leagues!"
 puts "created #{Team.count} teams!"
 
 Team.all.each do |team|
-  p team
   url = URI("https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&team=#{team.number}")
 
   http = Net::HTTP.new(url.host, url.port)
@@ -94,7 +93,7 @@ Team.all.each do |team|
       away_score = result["goals"]["away"]
       league = result["league"]["name"]
       result_date = DateTime.parse(result["fixture"]["date"])
-      Result.create(
+      game = Result.create(
         home_team_id: home,
         away_team_id: away,
         home_score: home_score,
@@ -102,6 +101,7 @@ Team.all.each do |team|
         league: league,
         date: result_date
       )
+      p game
     end
   end
 end
